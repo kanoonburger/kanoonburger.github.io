@@ -37,9 +37,19 @@ export function CartDrawer({
 
   const total = cartTotal(lines);
   const itemCount = lines.reduce((sum, line) => sum + line.quantity, 0);
-  const message = useMemo(
+  const whatsappLanguage: Language = language === "he" ? "en" : language;
+  const previewMessage = useMemo(
     () => buildOrderMessage(lines, { fulfillment, phone, address, notes }, language),
     [address, fulfillment, language, lines, notes, phone],
+  );
+  const whatsappMessage = useMemo(
+    () => buildOrderMessage(
+      lines,
+      { fulfillment, phone, address, notes },
+      whatsappLanguage,
+      { includePrices: false },
+    ),
+    [address, fulfillment, lines, notes, phone, whatsappLanguage],
   );
 
   useEffect(() => {
@@ -75,7 +85,7 @@ export function CartDrawer({
   };
 
   const completeOrder = () => {
-    window.open(whatsappUrl(restaurant.whatsappNumber, message), "_blank", "noopener,noreferrer");
+    window.open(whatsappUrl(restaurant.whatsappNumber, whatsappMessage), "_blank", "noopener,noreferrer");
     onClear();
     setPhone("");
     setAddress("");
@@ -208,7 +218,7 @@ export function CartDrawer({
         {stage === "review" && (
           <div className="review-order">
             <p>{ui.previewHint[language]}</p>
-            <pre dir={language === "en" ? "ltr" : "rtl"}>{message}</pre>
+            <pre dir={language === "en" ? "ltr" : "rtl"}>{previewMessage}</pre>
             <div className="whatsapp-notice"><span aria-hidden="true">ⓘ</span><p>{ui.whatsappNotice[language]}</p></div>
             <div className="drawer-actions">
               <button type="button" className="secondary-button" onClick={() => setStage("details")}>{ui.backToEdit[language]}</button>

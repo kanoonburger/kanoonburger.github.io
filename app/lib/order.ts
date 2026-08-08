@@ -11,9 +11,13 @@ type OrderDetails = {
   notes: string;
 };
 
+type OrderMessageOptions = {
+  includePrices?: boolean;
+};
+
 const text = {
   ar: {
-    heading: "🔥 طلب جديد — كانون برغر وأكثر",
+    heading: "طلب جديد — كانون برغر وأكثر",
     quantity: "الكمية",
     choice: "الخيار",
     method: "طريقة الاستلام",
@@ -24,9 +28,10 @@ const text = {
     notes: "ملاحظات الطلب",
     total: "الإجمالي",
     currency: "شيكل",
+    priceConfirmation: "يتم تأكيد السعر النهائي من قِبل المطعم.",
   },
   en: {
-    heading: "🔥 New order — Kanoon Burger & More",
+    heading: "New order — Kanoon Burger & More",
     quantity: "Quantity",
     choice: "Choice",
     method: "Fulfillment",
@@ -37,9 +42,10 @@ const text = {
     notes: "Order notes",
     total: "Total",
     currency: "NIS",
+    priceConfirmation: "The final price will be confirmed by the restaurant.",
   },
   he: {
-    heading: "🔥 הזמנה חדשה — קאנון בורגר ועוד",
+    heading: "הזמנה חדשה — קאנון בורגר ועוד",
     quantity: "כמות",
     choice: "בחירה",
     method: "אופן קבלה",
@@ -50,6 +56,7 @@ const text = {
     notes: "הערות להזמנה",
     total: "סה״כ",
     currency: "₪",
+    priceConfirmation: "המחיר הסופי יאושר על ידי המסעדה.",
   },
 } as const;
 
@@ -63,8 +70,10 @@ export function buildOrderMessage(
   lines: ResolvedCartLine[],
   details: OrderDetails,
   language: Language,
+  options: OrderMessageOptions = {},
 ) {
   const copy = text[language];
+  const includePrices = options.includePrices ?? true;
   const items = lines.map((line, index) => {
     const price = line.item.prices[line.priceIndex];
     const lineTotal = price.price * line.quantity;
@@ -74,7 +83,11 @@ export function buildOrderMessage(
         ? `\n   ${copy.choice}: ${line.item.selection.options[line.selectionIndex][language]}`
         : "";
 
-    return `${index + 1}. ${line.item.name[language]}${size}\n   ${copy.quantity}: ${line.quantity} × ${price.price} ${copy.currency} = ${lineTotal} ${copy.currency}${choice}`;
+    const quantity = includePrices
+      ? `${copy.quantity}: ${line.quantity} × ${price.price} ${copy.currency} = ${lineTotal} ${copy.currency}`
+      : `${copy.quantity}: ${line.quantity}`;
+
+    return `${index + 1}. ${line.item.name[language]}${size}\n   ${quantity}${choice}`;
   });
 
   const deliveryDetails =
@@ -90,7 +103,9 @@ export function buildOrderMessage(
     "────────────",
     `${copy.method}: ${details.fulfillment === "delivery" ? copy.delivery : copy.pickup}${deliveryDetails}${notes}`,
     "────────────",
-    `${copy.total}: ${cartTotal(lines)} ${copy.currency}`,
+    includePrices
+      ? `${copy.total}: ${cartTotal(lines)} ${copy.currency}`
+      : copy.priceConfirmation,
   ].join("\n");
 }
 
