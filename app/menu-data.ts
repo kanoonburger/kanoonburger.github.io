@@ -29,9 +29,9 @@ export const labels = {
     he: "קטגוריות",
   },
   items: {
-    ar: "وجبة",
+    ar: "صنف",
     en: "items",
-    he: "מנות",
+    he: "פריטים",
   },
   currency: {
     ar: "شيكل",
@@ -66,10 +66,16 @@ const sizeLabels = {
   large: { ar: "كبير", en: "Large", he: "גדול" },
 };
 
+const beefSizeLabels = {
+  small: { ar: "صغير — 100 غم لحمة", en: "Small — 100 g beef", he: "קטן — 100 גרם בשר בקר" },
+  medium: { ar: "وسط — 150 غم لحمة", en: "Medium — 150 g beef", he: "בינוני — 150 גרם בשר בקר" },
+  large: { ar: "كبير — 200 غم لحمة", en: "Large — 200 g beef", he: "גדול — 200 גרם בשר בקר" },
+};
+
 const beefPrices = (small: number, medium: number, large: number): PriceOption[] => [
-  { label: sizeLabels.small, price: small },
-  { label: sizeLabels.medium, price: medium },
-  { label: sizeLabels.large, price: large },
+  { label: beefSizeLabels.small, price: small },
+  { label: beefSizeLabels.medium, price: medium },
+  { label: beefSizeLabels.large, price: large },
 ];
 
 const fixedPrice = (price: number): PriceOption[] => [

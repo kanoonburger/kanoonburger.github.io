@@ -66,8 +66,6 @@ export default function Home() {
         onLanguageChange={selectLanguage}
         onCartOpen={() => setCartOpen(true)}
         cartCount={cartCount}
-        categoryCount={menuCategories.length}
-        itemCount={allItems.length}
       />
 
       <div className="category-bar" id="menu">

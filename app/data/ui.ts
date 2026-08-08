@@ -44,6 +44,10 @@ export const ui = {
   addressLabel: t("العنوان", "Address", "כתובת"),
   whatsapp: t("واتساب الطلبات", "Orders on WhatsApp", "הזמנות ב-WhatsApp"),
   followUs: t("تابعونا", "Follow us", "עקבו אחרינו"),
-  customerJourney: t("اختَر • راجع • أرسل", "Choose • Review • Send", "בחרו • בדקו • שלחו"),
+  customerJourney: t(
+    "اختر وجباتك، ثم أرسل الطلب من السلة",
+    "Choose your meals, then send your order from the cart",
+    "בחרו את המנות, ואז שלחו את ההזמנה מהסל",
+  ),
   cartSaved: t("سلتك تُحفظ تلقائيًا على هذا الجهاز.", "Your cart is saved automatically on this device.", "הסל נשמר אוטומטית במכשיר זה."),
 } as const;

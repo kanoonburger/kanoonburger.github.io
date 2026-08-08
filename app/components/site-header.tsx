@@ -14,8 +14,6 @@ type SiteHeaderProps = {
   onLanguageChange: (language: Language) => void;
   onCartOpen: () => void;
   cartCount: number;
-  categoryCount: number;
-  itemCount: number;
 };
 
 export function SiteHeader({
@@ -23,8 +21,6 @@ export function SiteHeader({
   onLanguageChange,
   onCartOpen,
   cartCount,
-  categoryCount,
-  itemCount,
 }: SiteHeaderProps) {
   return (
     <header className="hero" id="top">
@@ -62,9 +58,6 @@ export function SiteHeader({
 
       <div className="hero-content">
         <div className="hero-copy">
-          <p className="eyebrow"><span /> {labels.premium[language]}</p>
-          <h1>{labels.heroTitle[language]}</h1>
-          <p className="hero-description">{labels.heroCopy[language]}</p>
           <div className="hero-actions">
             <a className="menu-cta" href="#menu">
               {labels.menu[language]} <span aria-hidden="true">↓</span>
@@ -81,14 +74,6 @@ export function SiteHeader({
             </div>
             <div className="collage-logo">
               <img src={restaurant.images.logo} alt={restaurant.name[language]} />
-            </div>
-            <div className="hero-stamp">
-              <strong>{categoryCount}</strong>
-              <span>{labels.categories[language]}</span>
-            </div>
-            <div className="hero-count">
-              <strong>{itemCount}</strong>
-              <span>{labels.items[language]}</span>
             </div>
           </div>
 
