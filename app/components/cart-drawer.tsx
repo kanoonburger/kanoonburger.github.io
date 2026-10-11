@@ -3,9 +3,11 @@
 import { useEffect, useMemo, useState } from "react";
 import { restaurant } from "../data/restaurant";
 import { ui } from "../data/ui";
-import { buildOrderMessage, cartTotal, type ResolvedCartLine, whatsappUrl } from "../lib/order";
+import { buildOrderMessage, cartTotal, lineUnitPrice, type ResolvedCartLine, whatsappUrl } from "../lib/order";
+import { AddOnControls } from "./addon-controls";
+import { addOnDescriptions, addOnsValid, normalizeAddOns } from "../lib/configure";
 import { labels } from "../menu-data";
-import type { FulfillmentMethod, Language } from "../types/menu";
+import type { CartAddOn, FulfillmentMethod, Language } from "../types/menu";
 
 type CartDrawerProps = {
   open: boolean;
@@ -14,6 +16,7 @@ type CartDrawerProps = {
   onClose: () => void;
   onQuantityChange: (key: string, delta: number) => void;
   onRemove: (key: string) => void;
+  onUpdateOne: (key: string, priceIndex: number, selectionIndex: number | null, addOns: CartAddOn[]) => void;
   onClear: () => void;
 };
 
@@ -26,6 +29,7 @@ export function CartDrawer({
   onClose,
   onQuantityChange,
   onRemove,
+  onUpdateOne,
   onClear,
 }: CartDrawerProps) {
   const [stage, setStage] = useState<Stage>("cart");
@@ -34,6 +38,23 @@ export function CartDrawer({
   const [address, setAddress] = useState("");
   const [notes, setNotes] = useState("");
   const [error, setError] = useState("");
+  const [editingKey, setEditingKey] = useState<string | null>(null);
+  const [editPrice, setEditPrice] = useState(0);
+  const [editSelection, setEditSelection] = useState<number | null>(null);
+  const [editAddOns, setEditAddOns] = useState<CartAddOn[]>([]);
+  const editingLine = editingKey ? lines.find((line) => line.key === editingKey) : undefined;
+  const canSave = editingLine && (!editingLine.item.selection?.required || editSelection !== null) && addOnsValid(editingLine.item, editAddOns);
+  const startEdit = (line: ResolvedCartLine) => {
+    setEditingKey(line.key);
+    setEditPrice(line.priceIndex);
+    setEditSelection(line.selectionIndex);
+    setEditAddOns([...(line.addOns ?? [])]);
+  };
+  const saveEdit = () => {
+    if (!editingLine || !canSave) return;
+    onUpdateOne(editingLine.key, editPrice, editSelection, normalizeAddOns(editingLine.item, editAddOns));
+    setEditingKey(null);
+  };
 
   const total = cartTotal(lines);
   const itemCount = lines.reduce((sum, line) => sum + line.quantity, 0);
@@ -70,6 +91,7 @@ export function CartDrawer({
 
   const closeDrawer = () => {
     setStage("cart");
+    setEditingKey(null);
     setError("");
     onClose();
   };
@@ -119,7 +141,22 @@ export function CartDrawer({
 
         {stage === "cart" && (
           <>
-            {lines.length === 0 ? (
+            {editingLine ? <div className="cart-edit-panel">
+              <h3>{({ar:"تعديل برغر واحد",en:"Edit one item",he:"עריכת פריט אחד"})[language]}</h3>
+              <p>{editingLine.item.name[language]}</p>
+              {editingLine.item.prices.length > 1 && <fieldset className="option-group"><legend>{ui.chooseSize[language]}</legend>
+                <div className="option-pills">{editingLine.item.prices.map((price, index) => <button key={index} type="button" className={editPrice === index ? "active" : ""} onClick={() => setEditPrice(index)}>
+                  {price.label[language]} — {price.price} ₪
+                </button>)}</div>
+              </fieldset>}
+              {editingLine.item.selection && <fieldset className="option-group"><legend>{editingLine.item.selection.label[language]}</legend>
+                <div className="option-pills">{editingLine.item.selection.options.map((choice, index) => <button key={index} type="button" className={editSelection === index ? "active" : ""} onClick={() => setEditSelection(index)}>{choice[language]}</button>)}</div>
+              </fieldset>}
+              <AddOnControls item={editingLine.item} language={language} selections={editAddOns} onChange={setEditAddOns} />
+              {editingLine.quantity > 1 && <p className="edit-one-note">{({ar:"سيتم تعديل قطعة واحدة فقط؛ باقي الكمية تبقى كما هي.",en:"Only one item will change; the rest stay as they are.",he:"רק פריט אחד ישתנה; היתר יישארו ללא שינוי."})[language]}</p>}
+              <div className="drawer-actions"><button className="secondary-button" type="button" onClick={() => setEditingKey(null)}>{({ar:"إلغاء",en:"Cancel",he:"ביטול"})[language]}</button>
+                <button className="primary-button" type="button" disabled={!canSave} onClick={saveEdit}>{({ar:"حفظ تعديل قطعة واحدة",en:"Save one item",he:"שמירת פריט אחד"})[language]}</button></div>
+            </div> : lines.length === 0 ? (
               <div className="empty-cart">
                 <span aria-hidden="true">🍔</span>
                 <h3>{ui.emptyCart[language]}</h3>
@@ -133,26 +170,31 @@ export function CartDrawer({
                     const price = line.item.prices[line.priceIndex];
                     const selection =
                       line.selectionIndex !== null && line.item.selection
-                        ? line.item.selection.options[line.selectionIndex][language]
+                        ? line.item.selection.options[line.selectionIndex]?.[language]
                         : null;
+                    const extras = addOnDescriptions(line.item, line.addOns ?? [], language);
                     return (
                       <article className="cart-line" key={line.key}>
-                        <img src={line.item.image} alt="" />
+                        {line.item.image ? <img src={line.item.image} alt="" /> : <div className="cart-thumb-placeholder" aria-hidden="true">✦</div>}
                         <div className="cart-line-copy">
                           <h3>{line.item.name[language]}</h3>
                           <p>
                             {line.item.prices.length > 1 && <span>{price.label[language]}</span>}
                             {selection && <span>{selection}</span>}
+                            {extras.map((extra) => <span key={extra}>+ {extra}</span>)}
                           </p>
-                          <button type="button" onClick={() => onRemove(line.key)}>{ui.remove[language]}</button>
+                          <div className="cart-line-actions">
+                            <button type="button" onClick={() => startEdit(line)}>{({ar:"تعديل",en:"Edit",he:"עריכה"})[language]}</button>
+                            <button type="button" onClick={() => onRemove(line.key)}>{ui.remove[language]}</button>
+                          </div>
                         </div>
                         <div className="cart-line-side">
-                          <strong>{price.price * line.quantity} <small>{labels.currency[language]}</small></strong>
-                          <div className="quantity-control" aria-label={ui.cart[language]}>
+                          <strong>{lineUnitPrice(line) * line.quantity} <small>{labels.currency[language]}</small></strong>
+                          {line.item.customOneAtATime ? <span className="cart-single-unit">×1</span> : <div className="quantity-control" aria-label={ui.cart[language]}>
                             <button type="button" onClick={() => onQuantityChange(line.key, -1)} aria-label="−">−</button>
                             <span>{line.quantity}</span>
                             <button type="button" onClick={() => onQuantityChange(line.key, 1)} aria-label="+">+</button>
-                          </div>
+                          </div>}
                         </div>
                       </article>
                     );

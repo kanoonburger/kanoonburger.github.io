@@ -5,6 +5,7 @@ import { CartDrawer } from "./components/cart-drawer";
 import { ContactFooter } from "./components/contact-footer";
 import { ProductCard } from "./components/product-card";
 import { SiteHeader } from "./components/site-header";
+import { PhotoGallery } from "./components/photo-gallery";
 import { ui } from "./data/ui";
 import { useCart } from "./hooks/use-cart";
 import type { ResolvedCartLine } from "./lib/order";
@@ -16,7 +17,7 @@ const supportedLanguages: Language[] = ["ar", "en", "he"];
 export default function Home() {
   const [language, setLanguage] = useState<Language>("ar");
   const [cartOpen, setCartOpen] = useState(false);
-  const { lines, addItem, changeQuantity, removeItem, clearCart } = useCart();
+  const { lines, addItem, changeQuantity, removeItem, updateOneItem, clearCart } = useCart();
   const direction = language === "en" ? "ltr" : "rtl";
 
   const allItems = useMemo(
@@ -73,6 +74,7 @@ export default function Home() {
           {menuCategories.map((category) => (
             <a key={category.id} href={`#${category.id}`}>{category.name[language]}</a>
           ))}
+          <a href="#gallery">{({ar:"صور من طلبياتنا وموقعنا",en:"Our Photos",he:"התמונות שלנו"})[language]}</a>
           <button type="button" className="category-cart" onClick={() => setCartOpen(true)}>
             🛒 {ui.cartShort[language]} <strong>{cartCount}</strong>
           </button>
@@ -99,6 +101,7 @@ export default function Home() {
         ))}
       </section>
 
+      <PhotoGallery language={language} />
       <ContactFooter language={language} />
 
       <button
@@ -119,6 +122,7 @@ export default function Home() {
         onClose={closeCart}
         onQuantityChange={changeQuantity}
         onRemove={removeItem}
+        onUpdateOne={updateOneItem}
         onClear={clearCart}
       />
     </main>
