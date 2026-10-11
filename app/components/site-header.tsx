@@ -62,7 +62,6 @@ export function SiteHeader({
             <a className="menu-cta" href="#menu">
               {labels.menu[language]} <span aria-hidden="true">↓</span>
             </a>
-            <p>{ui.customerJourney[language]}</p>
           </div>
         </div>
 

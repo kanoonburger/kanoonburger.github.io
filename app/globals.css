@@ -234,6 +234,7 @@ img {
 
 .hero-copy {
   justify-self: center;
+  width: min(100%, 620px);
 }
 
 .eyebrow {
@@ -281,8 +282,9 @@ img {
 .hero-actions {
   display: flex;
   align-items: center;
+  flex-direction: column;
   justify-content: center;
-  gap: 20px;
+  gap: 15px;
   margin-top: 0;
 }
 
@@ -812,6 +814,10 @@ img {
   transition: 160ms ease;
 }
 
+.add-button {
+  min-width: 172px;
+}
+
 .add-button span {
   display: grid;
   place-items: center;
@@ -831,6 +837,26 @@ img {
 
 .add-button.added {
   background: var(--green);
+  transform: none;
+}
+
+.add-button.added:hover {
+  background: var(--green);
+  transform: none;
+}
+
+.add-button.added span {
+  background: white;
+  color: var(--green);
+}
+
+.add-button.added:disabled {
+  opacity: 1;
+}
+
+.add-button strong {
+  font-size: inherit;
+  font-weight: inherit;
 }
 
 .add-button:disabled {

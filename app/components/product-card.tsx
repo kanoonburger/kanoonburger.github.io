@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { labels } from "../menu-data";
 import { ui } from "../data/ui";
 import { AddOnControls } from "./addon-controls";
@@ -19,9 +19,16 @@ export function ProductCard({ item, language, onAdd }: ProductCardProps) {
   const [addOns, setAddOns] = useState<CartAddOn[]>([]);
   const [quantity, setQuantity] = useState(1);
   const [resetVersion, setResetVersion] = useState(0);
+  const [justAdded, setJustAdded] = useState(false);
+  const feedbackTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => () => {
+    if (feedbackTimer.current !== null) clearTimeout(feedbackTimer.current);
+  }, []);
+  const isUnpriced = item.prices.length === 0;
   const needsSelection = Boolean(item.selection?.required && selectionIndex === null);
-  const valid = !needsSelection && addOnsValid(item, addOns);
-  const unitPrice = item.prices[priceIndex].price + addOnTotal(item, addOns);
+  const valid = !isUnpriced && !needsSelection && addOnsValid(item, addOns);
+  const unitPrice = (item.prices[priceIndex]?.price ?? 0) + addOnTotal(item, addOns);
 
   const addToCart = () => {
     if (!valid) return;
@@ -33,6 +40,14 @@ export function ProductCard({ item, language, onAdd }: ProductCardProps) {
     setAddOns([]);
     setQuantity(1);
     setResetVersion((version) => version + 1);
+
+    // Give quick, visible confirmation while the options are already reset.
+    setJustAdded(true);
+    if (feedbackTimer.current !== null) clearTimeout(feedbackTimer.current);
+    feedbackTimer.current = setTimeout(() => {
+      setJustAdded(false);
+      feedbackTimer.current = null;
+    }, 1000);
   };
 
   return <article className="product-card">
@@ -68,10 +83,10 @@ export function ProductCard({ item, language, onAdd }: ProductCardProps) {
           <div className="addon-stepper"><button type="button" onClick={() => setQuantity(Math.max(1,quantity-1))}>−</button><b>{quantity}</b><button type="button" onClick={() => setQuantity(quantity+1)}>+</button></div>
         </div>}
         <div className="add-row">
-          <div className="selected-price"><strong>{unitPrice * (item.customOneAtATime ? 1 : quantity)}</strong><span>{labels.currency[language]}</span></div>
-          <button type="button" className="add-button" onClick={addToCart} disabled={!valid}>
-            <span aria-hidden="true">+</span>
-            {item.customOneAtATime ? ({ar:"تأكيد وإضافة للسلة",en:"Confirm and add to cart",he:"אישור והוספה לסל"})[language] : ui.add[language]}
+          <div className="selected-price">{isUnpriced ? <strong>{({ar:"السعر قريبًا",en:"Price coming soon",he:"המחיר בקרוב"})[language]}</strong> : <><strong>{unitPrice * (item.customOneAtATime ? 1 : quantity)}</strong><span>{labels.currency[language]}</span></>}</div>
+          <button type="button" className={`add-button ${justAdded ? "added" : ""}`} onClick={addToCart} disabled={!valid}>
+            <span aria-hidden="true">{justAdded ? "✓" : "+"}</span>
+            <strong aria-live="polite">{justAdded ? ui.added[language] : item.customOneAtATime ? ({ar:"تأكيد وإضافة للسلة",en:"Confirm and add to cart",he:"אישור והוספה לסל"})[language] : ui.add[language]}</strong>
           </button>
         </div>
         {item.placeholderPrice && <small className="test-price-tag">{({ar:"سعر تجريبي — غير معتمد",en:"Test price — not finalized",he:"מחיר זמני לבדיקה"})[language]}</small>}

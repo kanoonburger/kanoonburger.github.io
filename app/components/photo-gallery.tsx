@@ -6,10 +6,12 @@ type GalleryPhoto = { src: string; alt: LocalizedText };
 const photos: { title: LocalizedText; photos: GalleryPhoto[] }[] = [
   { title: { ar: "من طلبياتنا", en: "From Our Orders", he: "מההזמנות שלנו" }, photos: [
     { src: "/gallery/kanoon-customer-order.webp", alt: { ar: "صورة طلبية برغر وسناك", en: "Burger and snack order", he: "הזמנת בורגרים ונשנושים" } },
+    { src: "/gallery/kanoon-customers-thanks.webp", alt: { ar: "شكرًا لزبائن كانون", en: "Thank you to Kanoon customers", he: "תודה ללקוחות קאנון" } },
     { src: "/gallery/kanoon-food-promo.webp", alt: { ar: "صورة ترويجية لبرغر كانون", en: "Kanoon burger promotional photo", he: "תמונת פרסום של בורגר קאנון" } },
   ] },
   { title: { ar: "موقعنا وصور من المكان", en: "Our Store & Surroundings", he: "המסעדה והסביבה" }, photos: [
     { src: "/gallery/kanoon-storefront.webp", alt: { ar: "واجهة مطعم كانون وبجانبه ChocoDose", en: "Kanoon storefront next to ChocoDose", he: "חזית קאנון ליד ChocoDose" } },
+    { src: "/gallery/kanoon-storefront-promo.webp", alt: { ar: "مطعم كانون من الخارج", en: "Kanoon storefront poster", he: "חזית מסעדת קאנון" } },
     { src: "/gallery/kanoon-street-promo.webp", alt: { ar: "صورة ترويجية لشارع نعلين", en: "Ni'lin street promotional image", he: "תמונת פרסום של רחוב נעלין" } },
     { src: "/gallery/kanoon-burger-street.webp", alt: { ar: "صورة ترويجية برغر مع خلفية الشارع", en: "Promotional burger photo with street scene", he: "צילום פרסומי של בורגר על רקע הרחוב" } },
   ] },
