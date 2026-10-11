@@ -144,7 +144,7 @@ export function CartDrawer({
             {editingLine ? <div className="cart-edit-panel">
               <h3>{({ar:"تعديل برغر واحد",en:"Edit one item",he:"עריכת פריט אחד"})[language]}</h3>
               <p>{editingLine.item.name[language]}</p>
-              {editingLine.item.prices.length > 1 && <fieldset className="option-group"><legend>{ui.chooseSize[language]}</legend>
+              {editingLine.item.prices.length > 1 && <fieldset className="option-group"><legend>{editingLine.item.priceLabel?.[language] ?? ui.chooseSize[language]}</legend>
                 <div className="option-pills">{editingLine.item.prices.map((price, index) => <button key={index} type="button" className={editPrice === index ? "active" : ""} onClick={() => setEditPrice(index)}>
                   {price.label[language]} — {price.price} ₪
                 </button>)}</div>

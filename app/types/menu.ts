@@ -21,6 +21,7 @@ export type MenuItem = {
   description?: LocalizedText;
   image: string;
   prices: PriceOption[];
+  priceLabel?: LocalizedText;
   badge?: LocalizedText;
   spicy?: boolean;
   selection?: ProductSelection;

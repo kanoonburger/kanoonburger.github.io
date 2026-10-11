@@ -49,7 +49,7 @@ export function ProductCard({ item, language, onAdd }: ProductCardProps) {
       {item.description && <p className="product-description">{item.description[language]}</p>}
       <div className="product-order-controls">
         {item.prices.length > 1 && <fieldset className="option-group">
-          <legend>{ui.chooseSize[language]}</legend>
+          <legend>{item.priceLabel?.[language] ?? ui.chooseSize[language]}</legend>
           <div className="option-pills">{item.prices.map((price, index) => <button key={`${item.id}-${index}`} type="button"
             className={priceIndex === index ? "active" : ""} onClick={() => setPriceIndex(index)} aria-pressed={priceIndex === index}>
             <span>{price.label[language]}</span><strong>{price.price}</strong>

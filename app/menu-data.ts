@@ -752,11 +752,15 @@ if (individual) {
   individual.id = "individual-meals";
   individual.name = localized("وجبات فردية ووجبات أطفال", "Individual Meals & Kids", "ארוחות אישיות וילדים");
   individual.items.push(
-    { id: "MEAL001", slug: "caesar-salad", name: localized("سلطة سيزر", "Caesar Salad", "סלט קיסר"), image: "", prices: fixedPrice(0), placeholderPrice: true },
+    { id: "MEAL001", slug: "caesar-salad", name: localized("سلطة سيزر", "Caesar Salad", "סלט קיסר"), image: "",
+      prices: [
+        { label: localized("بدون دجاج", "Without chicken", "ללא עוף"), price: 15 },
+        { label: localized("مع دجاج", "With chicken", "עם עוף"), price: 20 },
+      ], priceLabel: localized("اختر نوع سلطة سيزر", "Choose Caesar salad type", "בחרו סוג סלט קיסר") },
     { id: "MEAL002", slug: "crispy-meal-3-pieces", name: localized("وجبة كريسبي 3 قطع", "3-Piece Crispy Meal", "ארוחת קריספי 3 יחידות"),
-      description: localized("3 قطع كريسبي مع بطاطا وصوصات.", "3 crispy chicken pieces with fries and sauces.", "3 יחידות עוף קריספי עם צ׳יפס ורטבים."), image: "", prices: fixedPrice(0), placeholderPrice: true },
+      description: localized("3 قطع كريسبي مع بطاطا وصوصات.", "3 crispy chicken pieces with fries and sauces.", "3 יחידות עוף קריספי עם צ׳יפס ורטבים."), image: "", prices: fixedPrice(20) },
     { id: "MEAL003", slug: "crispy-meal-5-pieces", name: localized("وجبة كريسبي 5 قطع", "5-Piece Crispy Meal", "ארוחת קריספי 5 יחידות"),
-      description: localized("5 قطع كريسبي مع بطاطا وصوصات.", "5 crispy chicken pieces with fries and sauces.", "5 יחידות עוף קריספי עם צ׳יפס ורטבים."), image: "", prices: fixedPrice(0), placeholderPrice: true },
+      description: localized("5 قطع كريسبي مع بطاطا وصوصات.", "5 crispy chicken pieces with fries and sauces.", "5 יחידות עוף קריספי עם צ׳יפס ורטבים."), image: "", prices: fixedPrice(30) },
     { id: "KIDS001", slug: "kids-meal", name: localized("وجبة الأطفال", "Kids Meal", "ארוחת ילדים"),
       description: localized("اختر وجبة من أربعة خيارات، مع بطاطا شيبس وعصير.", "Choose one of four meals, served with fries and juice.", "בחרו אחת מארבע מנות, עם צ׳יפס ומיץ."), image: "/menu/kids-meal-offer.webp", prices: fixedPrice(25),
       selection: { label: localized("اختر وجبة الأطفال", "Choose kids meal", "בחרו מנת ילדים"), required: true,
