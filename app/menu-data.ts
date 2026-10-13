@@ -295,8 +295,8 @@ export const menuCategories: MenuCategory[] = [
         id: "SANDWICH001",
         slug: "classic-hot-dog",
         name: {
-          ar: "هوت دوغ كلاسيك",
-          en: "Classic Hot Dog",
+          ar: "باجيت هوت دوغ كلاسيك",
+          en: "Baguette Classic Hot Dog",
           he: "הוט דוג קלאסי",
         },
         description: {
@@ -311,8 +311,8 @@ export const menuCategories: MenuCategory[] = [
         id: "SANDWICH002",
         slug: "mushroom-hot-dog",
         name: {
-          ar: "ماشروم هوت دوغ",
-          en: "Mushroom Hot Dog",
+          ar: "باجيت ماشروم هوت دوغ",
+          en: "Baguette Mushroom Hot Dog",
           he: "הוט דוג פטריות",
         },
         description: {
@@ -327,8 +327,8 @@ export const menuCategories: MenuCategory[] = [
         id: "SANDWICH003",
         slug: "jalapeno-hot-dog",
         name: {
-          ar: "هوت دوغ هالابينو",
-          en: "Jalapeño Hot Dog",
+          ar: "باجيت هوت دوغ هالابينو",
+          en: "Baguette Jalapeño Hot Dog",
           he: "הוט דוג חלפיניו",
         },
         description: {
@@ -344,8 +344,8 @@ export const menuCategories: MenuCategory[] = [
         id: "SANDWICH004",
         slug: "onion-rings-hot-dog",
         name: {
-          ar: "هوت دوغ حلقات البصل",
-          en: "Onion Rings Hot Dog",
+          ar: "باجيت هوت دوغ حلقات البصل",
+          en: "Baguette Onion Rings Hot Dog",
           he: "הוט דוג טבעות בצל",
         },
         description: {
@@ -360,8 +360,8 @@ export const menuCategories: MenuCategory[] = [
         id: "SANDWICH005",
         slug: "chicken-schnitzel-sandwich",
         name: {
-          ar: "ساندويش شنيتسل",
-          en: "Chicken Schnitzel Sandwich",
+          ar: "باجيت شنيتسل",
+          en: "Baguette Chicken Schnitzel",
           he: "סנדוויץ׳ שניצל",
         },
         description: {
@@ -376,8 +376,8 @@ export const menuCategories: MenuCategory[] = [
         id: "SANDWICH006",
         slug: "musahab-chicken-sandwich",
         name: {
-          ar: "ساندويش مسحب",
-          en: "Musahab Chicken Sandwich",
+          ar: "باجيت مسحب",
+          en: "Baguette Musahab Chicken",
           he: "סנדוויץ׳ מוסחב עוף",
         },
         description: {
@@ -392,8 +392,8 @@ export const menuCategories: MenuCategory[] = [
         id: "SANDWICH007",
         slug: "chicken-fajita-sandwich",
         name: {
-          ar: "ساندويش فاهيتا تشيكن",
-          en: "Chicken Fajita Sandwich",
+          ar: "باجيت فاهيتا تشيكن",
+          en: "Baguette Chicken Fajita",
           he: "סנדוויץ׳ פאהיטה עוף",
         },
         description: {
@@ -409,8 +409,8 @@ export const menuCategories: MenuCategory[] = [
         id: "SANDWICH008",
         slug: "zinger-chicken-sandwich",
         name: {
-          ar: "ساندويش زينجر",
-          en: "Zinger Chicken Sandwich",
+          ar: "باجيت زينجر",
+          en: "Baguette Zinger Chicken",
           he: "סנדוויץ׳ זינגר",
         },
         description: {
@@ -696,10 +696,11 @@ const customBurgerGroup = {
   id: "custom-toppings", label: localized("إضافات على كيفك (اختيارية)", "Build-your-own toppings (optional)", "תוספות לבחירה (לא חובה)"), kind: "toggle" as const,
   options: [
     option("jalapeno", "هالابينو", "Jalapeño", "חלפיניו", 3),
-    option("egg", "بيض", "Egg", "ביצה", 5),
+    option("egg", "بيض عيون", "Fried egg", "ביצת עין", 5),
     option("avocado", "أفوكادو", "Avocado", "אבוקדו", 7),
     option("mozzarella", "موتزاريلا", "Mozzarella", "מוצרלה", 10),
     option("onion-rings", "حلقات بصل", "Onion rings", "טבעות בצל", 6),
+    option("caramelized-onion", "بصل مكرمل", "Caramelized onion", "בצל מקורמל", 5),
     option("pineapple", "أناناس", "Pineapple", "אננס", 8),
   ],
 };
@@ -726,10 +727,10 @@ changePrice("SANDWICH002", 20);
 changePrice("SANDWICH003", 15);
 changePrice("SANDWICH004", 20);
 const hotDog = byId("SANDWICH003");
-if (hotDog) { hotDog.slug = "mexicano-hot-dog"; hotDog.name = localized("ماكسيكانو هوت دوغ", "Mexicano Hot Dog", "הוט דוג מקסיקנו"); }
+if (hotDog) { hotDog.slug = "mexicano-hot-dog"; hotDog.name = localized("باجيت ماكسيكانو هوت دوغ", "Baguette Mexicano Hot Dog", "בגט הוט דוג מקסיקנו"); }
 menuCategories[2].items.push(
-  { id: "SANDWICH009", slug: "creamy-chicken-sandwich", name: localized("ساندويش دجاج كريمي", "Creamy Chicken Sandwich", "סנדוויץ׳ עוף קרמי"), image: "/menu/creamy-chicken-sandwich.webp", prices: fixedPrice(30) },
-  { id: "SANDWICH010", slug: "grilled-chicken-steak-sandwich", name: localized("ساندويش ستيك دجاج مشوي", "Grilled Chicken Steak Sandwich", "סנדוויץ׳ סטייק עוף צלוי"), image: "/menu/grilled-chicken-steak-sandwich.webp", prices: fixedPrice(20) },
+  { id: "SANDWICH009", slug: "creamy-chicken-sandwich", name: localized("باجيت دجاج كريمي", "Baguette Creamy Chicken", "בגט עוף קרמי"), image: "/menu/creamy-chicken-sandwich.webp", prices: fixedPrice(30) },
+  { id: "SANDWICH010", slug: "grilled-chicken-steak-sandwich", name: localized("باجيت ستيك دجاج مشوي", "Baguette Grilled Chicken Steak", "בגט סטייק עוף צלוי"), image: "/menu/grilled-chicken-steak-sandwich.webp", prices: fixedPrice(20) },
 );
 removeId("FRIES004");
 const chips = byId("FRIES003");
@@ -751,27 +752,155 @@ const potatoBalls = byId("SNACK007");
 if (potatoBalls) { potatoBalls.slug = "crispy-potato-balls-10pcs"; potatoBalls.name = localized("10 كرات بطاطا", "10 Potato Balls", "10 כדורי תפוחי אדמה"); potatoBalls.description = undefined; }
 const snackBox = byId("SNACK008");
 if (snackBox) { snackBox.name = localized("سناك بوكس مكس", "Mixed Snacks Box", "מארז נשנושים מיקס"); snackBox.description = localized("قطعتان دجاج كريسبي، قطعتان موتزاريلا، حلقتا بصل، كرتا بطاطا، وبطاطا شيبس.", "2 crispy chicken strips, 2 mozzarella sticks, 2 onion rings, 2 potato balls and fries.", "2 רצועות עוף קריספי, 2 מקלות מוצרלה, 2 טבעות בצל, 2 כדורי תפוחי אדמה וצ׳יפס."); }
+menuCategories[4].items.push({
+  id: "SNACK009", slug: "sesame-chicken-sticks", name: localized("أصابع دجاج بسمسم", "Sesame Chicken Sticks", "אצבעות עוף בשומשום"),
+  description: localized("أصابع دجاج بسمسم مقرمشة تُقدّم مع صوص جانبي. السعر يُحدَّد لاحقًا.", "Crispy sesame chicken sticks served with a side dip. Price to be added later.", "אצבעות עוף שומשום קריספיות עם מטבל בצד. המחיר יתווסף בהמשך."),
+  image: "/menu/sesame-chicken-sticks.webp", prices: [], placeholderPrice: true
+});
 
 const individual = menuCategories.find((category) => category.id === "special-meals");
 if (individual) {
   individual.id = "individual-meals";
-  individual.name = localized("وجبات فردية ووجبات أطفال", "Individual Meals & Kids", "ארוחות אישיות וילדים");
+  individual.name = localized("وجبات فردية", "Individual Meals", "ארוחות אישיות");
+  const chickenCheeseFries = individual.items.find((item) => item.id === "SPECIAL001");
+  if (chickenCheeseFries) {
+    chickenCheeseFries.description = localized(
+      "بطاطا شيبس مغطاة باختيارك من الدجاج الكريسبي أو الشنيتسل، ثم تختار حار أو عادي، مع صوص كانون الخاص وصوص الجبنة.",
+      "Fries topped with your choice of crispy chicken or schnitzel, then choose spicy or classic, with Kanoon sauce and cheese sauce.",
+      "צ׳יפס עם בחירה בין עוף קריספי או שניצל, ולאחר מכן חריף או רגיל, עם רוטב קאנון ורוטב גבינה.",
+    );
+    chickenCheeseFries.selection = {
+      label: localized("اختر نوع الدجاج", "Choose chicken type", "בחרו סוג עוף"),
+      options: [localized("كريسبي", "Crispy", "קריספי"), localized("شنيتسل", "Schnitzel", "שניצל")],
+      required: true,
+    };
+    chickenCheeseFries.addOnGroups = [
+      {
+        id: "special-spice-level",
+        label: localized("اختر النكهة", "Choose flavor", "בחרו טעם"),
+        kind: "single",
+        required: true,
+        options: [
+          option("classic", "عادي", "Classic", "רגיל", 0),
+          option("spicy", "حار", "Spicy", "חריף", 0),
+        ],
+      },
+    ];
+  }
+
   individual.items.push(
-    { id: "MEAL001", slug: "caesar-salad", name: localized("سلطة سيزر", "Caesar Salad", "סלט קיסר"), image: "/menu/caesar-salad.webp",
+    {
+      id: "MEAL001",
+      slug: "caesar-salad",
+      name: localized("سلطة سيزر", "Caesar Salad", "סלט קיסר"),
+      description: localized(
+        "سلطة سيزر طازجة ومقرمشة، متوفرة بدون دجاج أو مع دجاج، وبحجمين صغير وكبير.",
+        "Fresh crunchy Caesar salad, available with or without chicken in small and large sizes.",
+        "סלט קיסר טרי וקריספי, זמין עם או בלי עוף, בגדלים קטן וגדול.",
+      ),
+      image: "/menu/caesar-salad.webp",
       prices: [
-        { label: localized("بدون دجاج", "Without chicken", "ללא עוף"), price: 15 },
-        { label: localized("مع دجاج", "With chicken", "עם עוף"), price: 20 },
-      ], priceLabel: localized("اختر نوع سلطة سيزر", "Choose Caesar salad type", "בחרו סוג סלט קיסר") },
-    { id: "MEAL002", slug: "crispy-meal-3-pieces", name: localized("وجبة كريسبي 3 قطع", "3-Piece Crispy Meal", "ארוחת קריספי 3 יחידות"),
-      description: localized("3 قطع كريسبي مع بطاطا وصوصات.", "3 crispy chicken pieces with fries and sauces.", "3 יחידות עוף קריספי עם צ׳יפס ורטבים."), image: "/menu/crispy-meal-3-pieces.webp", prices: fixedPrice(20) },
-    { id: "MEAL003", slug: "crispy-meal-5-pieces", name: localized("وجبة كريسبي 5 قطع", "5-Piece Crispy Meal", "ארוחת קריספי 5 יחידות"),
-      description: localized("5 قطع كريسبي مع بطاطا وصوصات.", "5 crispy chicken pieces with fries and sauces.", "5 יחידות עוף קריספי עם צ׳יפס ורטבים."), image: "/menu/crispy-meal-5-pieces.webp", prices: fixedPrice(30) },
-    { id: "KIDS001", slug: "kids-meal", name: localized("وجبة الأطفال", "Kids Meal", "ארוחת ילדים"),
-      description: localized("اختر وجبة من أربعة خيارات، مع بطاطا شيبس وعصير.", "Choose one of four meals, served with fries and juice.", "בחרו אחת מארבע מנות, עם צ׳יפס ומיץ."), image: "/menu/kids-meal-offer.webp", prices: fixedPrice(25),
-      selection: { label: localized("اختر وجبة الأطفال", "Choose kids meal", "בחרו מנת ילדים"), required: true,
-        options: [localized("برغر لحمة كلاسيك", "Classic beef burger", "בורגר בקר קלאסי"), localized("برغر دجاج كريسبي", "Crispy chicken burger", "בורגר עוף קריספי"), localized("ساندويش مسحب", "Musahab chicken sandwich", "סנדוויץ׳ מוסחב עוף"), localized("هوت دوغ", "Hot dog", "הוט דוג")] } },
+        { label: localized("صغير بدون دجاج", "Small without chicken", "קטן ללא עוף"), price: 15 },
+        { label: localized("كبير بدون دجاج", "Large without chicken", "גדול ללא עוף"), price: 20 },
+        { label: localized("صغير مع دجاج", "Small with chicken", "קטן עם עוף"), price: 20 },
+        { label: localized("كبير مع دجاج", "Large with chicken", "גדול עם עוף"), price: 30 },
+      ],
+      priceLabel: localized("اختر الحجم والنوع", "Choose size and type", "בחרו גודל וסוג"),
+    },
+    {
+      id: "MEAL002",
+      slug: "crispy-meal-3-pieces",
+      name: localized("وجبة كريسبي 3 قطع", "3-Piece Crispy Meal", "ארוחת קריספי 3 יחידות"),
+      description: localized("3 قطع كريسبي مع بطاطا وصوصات، ويمكنك إضافة قطع إضافية.", "3 crispy chicken pieces with fries and sauces, with optional extra pieces.", "3 יחידות קריספי עם צ׳יפס ורטבים, עם אפשרות להוסיף יחידות נוספות."),
+      image: "/menu/crispy-meal-3-pieces.webp",
+      prices: fixedPrice(20),
+      addOnGroups: [
+        {
+          id: "crispy-meal-3-flavor",
+          label: localized("اختر النكهة", "Choose flavor", "בחרו טעם"),
+          kind: "single",
+          required: true,
+          options: [
+            option("classic", "عادي", "Classic", "רגיל", 0),
+            option("spicy", "حار", "Spicy", "חריף", 0),
+          ],
+        },
+        {
+          id: "crispy-meal-3-extra-piece",
+          label: localized("إضافة قطع كريسبي", "Add extra crispy pieces", "הוספת יחידות קריספי"),
+          kind: "quantity",
+          options: [option("extra-piece", "+ قطعة كريسبي إضافية", "+ extra crispy piece", "+ יחידת קריספי נוספת", 5)],
+        },
+      ],
+      customOneAtATime: true,
+    },
+    {
+      id: "MEAL003",
+      slug: "crispy-meal-5-pieces",
+      name: localized("وجبة كريسبي 5 قطع", "5-Piece Crispy Meal", "ארוחת קריספי 5 יחידות"),
+      description: localized("5 قطع كريسبي مع بطاطا وصوصات، ويمكنك إضافة قطع إضافية.", "5 crispy chicken pieces with fries and sauces, with optional extra pieces.", "5 יחידות קריספי עם צ׳יפס ורטבים, עם אפשרות להוסיף יחידות נוספות."),
+      image: "/menu/crispy-meal-5-pieces.webp",
+      prices: fixedPrice(30),
+      addOnGroups: [
+        {
+          id: "crispy-meal-5-flavor",
+          label: localized("اختر النكهة", "Choose flavor", "בחרו טעם"),
+          kind: "single",
+          required: true,
+          options: [
+            option("classic", "عادي", "Classic", "רגיל", 0),
+            option("spicy", "حار", "Spicy", "חריף", 0),
+          ],
+        },
+        {
+          id: "crispy-meal-5-extra-piece",
+          label: localized("إضافة قطع كريسبي", "Add extra crispy pieces", "הוספת יחידות קריספי"),
+          kind: "quantity",
+          options: [option("extra-piece", "+ قطعة كريسبي إضافية", "+ extra crispy piece", "+ יחידת קריספי נוספת", 5)],
+        },
+      ],
+      customOneAtATime: true,
+    },
   );
 }
+menuCategories.push({
+  id: "kids-meals",
+  name: localized("وجبات أطفال", "Kids Meals", "ארוחות ילדים"),
+  items: [
+    {
+      id: "KIDS001",
+      slug: "kids-hot-dog-meal",
+      name: localized("وجبة أطفال هوت دوغ", "Kids Hot Dog Meal", "ארוחת ילדים הוט דוג"),
+      description: localized("هوت دوغ مع بطاطا شيبس وعصير.", "Hot dog with fries and juice.", "הוט דוג עם צ׳יפס ומיץ."),
+      image: "/menu/classic-hot-dog.webp",
+      prices: fixedPrice(20),
+    },
+    {
+      id: "KIDS002",
+      slug: "kids-musahab-meal",
+      name: localized("وجبة أطفال مسحب", "Kids Musahab Meal", "ארוחת ילדים מוסחב"),
+      description: localized("ساندويش مسحب مع بطاطا شيبس وعصير.", "Musahab sandwich with fries and juice.", "סנדוויץ׳ מוסחב עם צ׳יפס ומיץ."),
+      image: "/menu/musahab-chicken-sandwich.webp",
+      prices: fixedPrice(20),
+    },
+    {
+      id: "KIDS003",
+      slug: "kids-classic-burger-meal",
+      name: localized("وجبة أطفال برغر كلاسيك", "Kids Classic Burger Meal", "ארוחת ילדים בורגר קלאסי"),
+      description: localized("برغر كلاسيك مع بطاطا شيبس وعصير.", "Classic burger with fries and juice.", "בורגר קלאסי עם צ׳יפס ומיץ."),
+      image: "/menu/classic-cheeseburger.webp",
+      prices: fixedPrice(25),
+    },
+    {
+      id: "KIDS004",
+      slug: "kids-crispy-burger-meal",
+      name: localized("وجبة أطفال برغر كريسبي", "Kids Crispy Burger Meal", "ארוחת ילדים בורגר קריספי"),
+      description: localized("برغر كريسبي مع بطاطا شيبس وعصير.", "Crispy burger with fries and juice.", "בורגר קריספי עם צ׳יפס ומיץ."),
+      image: "/menu/crispy-chicken-burger.webp",
+      prices: fixedPrice(25),
+    },
+  ],
+});
 menuCategories.push({ id: "family-offers", name: localized("عروض عائلية", "Family Offers", "מבצעים משפחתיים"), items: [
   { id: "FAMILY001", slug: "four-beef-burgers-offer", name: localized("عرض 4 برغر لحمة", "4 Beef Burgers Offer", "מבצע 4 המבורגרים בקר"),
     description: localized("4 برغر لحمة (150 غم للحبة)، بطاطا كبيرة، 4 حلقات بصل، 4 كرات بطاطا، صوصات متنوعة + كولا عائلي.", "4 beef burgers (150 g each), large fries, 4 onion rings, 4 potato balls, assorted sauces + family-size cola.", "4 המבורגרים בקר (150 גרם כל אחד), צ׳יפס גדול, 4 טבעות בצל, 4 כדורי תפוחי אדמה, רטבים מגוונים + קולה משפחתית."),
@@ -795,7 +924,7 @@ if (family) family.items.unshift({
 });
 menuCategories.push({ id: "drinks", name: localized("المشروبات", "Drinks", "משקאות"), items: [
   { id: "DRINK001", slug: "chat-cola", name: localized("تشات كولا", "Chat Cola", "צ׳אט קולה"), image: "/menu/chat-cola.webp", prices: fixedPrice(2) },
-  { id: "DRINK002", slug: "xl-energy-drink", name: localized("إكس إل", "XL", "XL"), image: "/menu/xl-energy-drink.webp", prices: fixedPrice(5) },
+  { id: "DRINK002", slug: "xl-energy-drink", name: localized("إكس إل", "XL", "XL"), image: "", prices: fixedPrice(5) },
   { id: "DRINK003", slug: "grape-juice", name: localized("عصير عنب", "Grape Juice", "מיץ ענבים"), image: "", prices: fixedPrice(2) },
   { id: "DRINK004", slug: "orange-juice", name: localized("عصير برتقال", "Orange Juice", "מיץ תפוזים"), image: "", prices: fixedPrice(2) },
   { id: "DRINK005", slug: "soda", name: localized("سودا", "Soda", "סודה"), image: "", prices: fixedPrice(0), placeholderPrice: true },
