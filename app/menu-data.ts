@@ -906,7 +906,7 @@ menuCategories.push({ id: "family-offers", name: localized("عروض عائلي�
   { id: "FAMILY005", slug: "five-classic-burgers-offer", name: localized("عرض اللمة", "Al-Lamma Family Offer", "מבצע אל-למה"),
     description: localized("5 تشيز برغر كلاسيك (100 غم للحبة) + بطاطا كبيرة + صوصات متنوعة + 5 علب تشات كولا.", "5 classic cheeseburgers (100 g each) + large fries + assorted sauces + 5 Chat Cola cans.", "5 צ׳יזבורגרים קלאסיים (100 גרם כל אחד) + צ׳יפס גדול + רטבים מגוונים + 5 פחיות צ׳אט קולה."),
     image: "/menu/family-five-classic-chat.webp", prices: fixedPrice(100) },
-  { id: "FAMILY001", slug: "four-beef-burgers-offer", name: localized("أربعة عالجمر", "Four on the Grill", "ארבעה על הגריל"),
+  { id: "FAMILY001", slug: "four-beef-burgers-offer", name: localized("متكتك", "Metaktak", "מטקטק"),
     description: localized("4 برغر لحمة (150 غم للحبة) + بطاطا كبيرة + 4 حلقات بصل + 4 كرات بطاطا + صوصات متنوعة + 4 علب تشات كولا.", "4 beef burgers (150 g each) + large fries + 4 onion rings + 4 potato balls + assorted sauces + 4 Chat Cola cans.", "4 המבורגרי בקר (150 גרם כל אחד) + צ׳יפס גדול + 4 טבעות בצל + 4 כדורי תפוחי אדמה + רטבים מגוונים + 4 פחיות צ׳אט קולה."),
     image: "/menu/family-four-beef-burgers-chat.webp", prices: fixedPrice(110) },
   { id: "FAMILY002", slug: "abu-shreek-box", name: localized("بوكس أبو شريك", "Abu Shreek Box", "בוקס אבו שריק"),
@@ -929,12 +929,12 @@ menuCategories.push({ id: "drinks", name: localized("المشروبات", "Drink
   { id: "DRINK003", slug: "grape-juice", name: localized("عصير عنب", "Grape Juice", "מיץ ענבים"), image: "/menu/bravo-junior-grape-real-20261013.webp", prices: fixedPrice(2) },
   { id: "DRINK004", slug: "orange-juice", name: localized("عصير برتقال", "Orange Juice", "מיץ תפוזים"), image: "/menu/bravo-junior-orange-real-20261013.webp", prices: fixedPrice(2) },
   { id: "DRINK005", slug: "soda", name: localized("صودا تركية", "Turkish Soda", "סודה טורקית"), image: "/menu/uludag-turkish-soda-real-20261013.webp", prices: fixedPrice(2) },
-  { id: "DRINK006", slug: "cola", name: localized("كولا", "Cola", "קולה"), image: "", prices: fixedPrice(3) },
+  { id: "DRINK006", slug: "cola", name: localized("كولا", "Cola", "קולה"), image: "/menu/coca-cola-original-20261013.png", prices: fixedPrice(3) },
   { id: "DRINK007", slug: "sprite", name: localized("سبرايت", "Sprite", "ספרייט"), image: "", prices: fixedPrice(3) },
-  { id: "DRINK008", slug: "cola-zero", name: localized("كولا زيرو", "Cola Zero", "קולה זירו"), image: "", prices: fixedPrice(3) },
+  { id: "DRINK008", slug: "cola-zero", name: localized("كولا زيرو", "Cola Zero", "קולה זירו"), image: "/menu/coca-cola-zero-20261013.png", prices: fixedPrice(3) },
   { id: "DRINK009", slug: "chocodose-mojito", name: localized("موهيتو ChocoDose", "ChocoDose Mojito", "מוחיטו ChocoDose"), image: "", prices: fixedPrice(5),
     addOnGroups: [{ id: "mojito-mixer", label: localized("اختر المشروب المضاف إلى الموهيتو", "Choose your mojito mixer", "בחרו משקה למוחיטו"), kind: "single", required: true,
-      options: [option("chat-cola", "تشات كولا", "Chat Cola", "צ׳אט קולה", 2), option("cola", "كولا", "Cola", "קולה", 3), option("xl", "إكس إل", "XL", "XL", 5)] }] },
+      options: [option("sprite", "سبرايت", "Sprite", "ספרייט", 3), option("xl", "إكس إل", "XL", "XL", 5), option("soda", "صودا تركية", "Turkish Soda", "סודה טורקית", 2)] }] },
 ]});
 
 // Kanoon menu visibility settings. Invisible products remain in the source, and
