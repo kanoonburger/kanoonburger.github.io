@@ -872,7 +872,7 @@ menuCategories.push({
       slug: "kids-hot-dog-meal",
       name: localized("وجبة أطفال هوت دوغ", "Kids Hot Dog Meal", "ארוחת ילדים הוט דוג"),
       description: localized("هوت دوغ مع بطاطا شيبس وعصير.", "Hot dog with fries and juice.", "הוט דוג עם צ׳יפס ומיץ."),
-      image: "/menu/classic-hot-dog.webp",
+      image: "/menu/kids-hot-dog-meal.webp",
       prices: fixedPrice(20),
     },
     {
@@ -880,7 +880,7 @@ menuCategories.push({
       slug: "kids-musahab-meal",
       name: localized("وجبة أطفال مسحب", "Kids Musahab Meal", "ארוחת ילדים מוסחב"),
       description: localized("ساندويش مسحب مع بطاطا شيبس وعصير.", "Musahab sandwich with fries and juice.", "סנדוויץ׳ מוסחב עם צ׳יפס ומיץ."),
-      image: "/menu/musahab-chicken-sandwich.webp",
+      image: "/menu/kids-musahab-meal.webp",
       prices: fixedPrice(20),
     },
     {
@@ -888,7 +888,7 @@ menuCategories.push({
       slug: "kids-classic-burger-meal",
       name: localized("وجبة أطفال برغر كلاسيك", "Kids Classic Burger Meal", "ארוחת ילדים בורגר קלאסי"),
       description: localized("برغر كلاسيك مع بطاطا شيبس وعصير.", "Classic burger with fries and juice.", "בורגר קלאסי עם צ׳יפס ומיץ."),
-      image: "/menu/classic-cheeseburger.webp",
+      image: "/menu/kids-classic-burger-meal.webp",
       prices: fixedPrice(25),
     },
     {
@@ -896,7 +896,7 @@ menuCategories.push({
       slug: "kids-crispy-burger-meal",
       name: localized("وجبة أطفال برغر كريسبي", "Kids Crispy Burger Meal", "ארוחת ילדים בורגר קריספי"),
       description: localized("برغر كريسبي مع بطاطا شيبس وعصير.", "Crispy burger with fries and juice.", "בורגר קריספי עם צ׳יפס ומיץ."),
-      image: "/menu/crispy-chicken-burger.webp",
+      image: "/menu/kids-crispy-burger-meal.webp",
       prices: fixedPrice(25),
     },
   ],
