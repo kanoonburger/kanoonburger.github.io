@@ -20,7 +20,7 @@ export function buildOrderMessage(lines: ResolvedCartLine[], details: OrderDetai
     const choice = line.selectionIndex !== null && line.item.selection?.options[line.selectionIndex]
       ? `\n   ${copy.choice}: ${line.item.selection.options[line.selectionIndex][language]}` : "";
     const extras = addOnDescriptions(line.item, line.addOns ?? [], language);
-    const extraText = extras.length ? `\n   ${copy.extras}: ${extras.join("، ")}` : "";
+    const extraText = extras.length ? `\n   ${copy.extras}: ${extras.join(language === "en" ? ", " : "، ")}` : "";
     const quantity = includePrices
       ? `${copy.quantity}: ${line.quantity} × ${lineUnitPrice(line)} ${copy.currency} = ${lineUnitPrice(line) * line.quantity} ${copy.currency}`
       : `${copy.quantity}: ${line.quantity}`;
