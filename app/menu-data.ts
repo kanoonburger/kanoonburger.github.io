@@ -754,9 +754,9 @@ if (potatoBalls) { potatoBalls.slug = "crispy-potato-balls-10pcs"; potatoBalls.n
 const snackBox = byId("SNACK008");
 if (snackBox) { snackBox.name = localized("سناك بوكس مكس", "Mixed Snacks Box", "מארז נשנושים מיקס"); snackBox.description = localized("قطعتان دجاج كريسبي، قطعتان موتزاريلا، حلقتا بصل، كرتا بطاطا، وبطاطا شيبس.", "2 crispy chicken strips, 2 mozzarella sticks, 2 onion rings, 2 potato balls and fries.", "2 רצועות עוף קריספי, 2 מקלות מוצרלה, 2 טבעות בצל, 2 כדורי תפוחי אדמה וצ׳יפס."); }
 menuCategories[4].items.push({
-  id: "SNACK009", slug: "sesame-chicken-sticks", name: localized("أصابع دجاج بسمسم", "Sesame Chicken Sticks", "אצבעות עוף בשומשום"),
+  id: "SNACK009", slug: "sesame-chicken-sticks", name: localized("أصابع دجاج بالسمسم (5 قطع)", "Sesame Chicken Sticks (5 pcs)", "אצבעות עוף בשומשום (5 יחידות)"),
   description: localized("أصابع دجاج بسمسم مقرمشة تُقدّم مع صوص جانبي. السعر يُحدَّد لاحقًا.", "Crispy sesame chicken sticks served with a side dip. Price to be added later.", "אצבעות עוף שומשום קריספיות עם מטבל בצד. המחיר יתווסף בהמשך."),
-  image: "/menu/sesame-chicken-sticks.webp", prices: [], placeholderPrice: true
+  image: "/menu/sesame-chicken-sticks.webp", prices: fixedPrice(30)
 });
 
 const individual = menuCategories.find((category) => category.id === "special-meals");
@@ -925,10 +925,10 @@ menuCategories.push({ id: "family-offers", name: localized("عروض عائلي�
 ]});
 menuCategories.push({ id: "drinks", name: localized("المشروبات", "Drinks", "משקאות"), items: [
   { id: "DRINK001", slug: "chat-cola", name: localized("تشات كولا", "Chat Cola", "צ׳אט קולה"), image: "/menu/chat-cola.webp", prices: fixedPrice(2) },
-  { id: "DRINK002", slug: "xl-energy-drink", name: localized("إكس إل", "XL", "XL"), image: "", prices: fixedPrice(5) },
-  { id: "DRINK003", slug: "grape-juice", name: localized("عصير عنب", "Grape Juice", "מיץ ענבים"), image: "", prices: fixedPrice(2) },
-  { id: "DRINK004", slug: "orange-juice", name: localized("عصير برتقال", "Orange Juice", "מיץ תפוזים"), image: "", prices: fixedPrice(2) },
-  { id: "DRINK005", slug: "soda", name: localized("سودا", "Soda", "סודה"), image: "", prices: [] },
+  { id: "DRINK002", slug: "xl-energy-drink", name: localized("إكس إل", "XL", "XL"), image: "/menu/xl-energy-drink-real-20261013.webp", prices: fixedPrice(5) },
+  { id: "DRINK003", slug: "grape-juice", name: localized("عصير عنب", "Grape Juice", "מיץ ענבים"), image: "/menu/bravo-junior-grape-real-20261013.webp", prices: fixedPrice(2) },
+  { id: "DRINK004", slug: "orange-juice", name: localized("عصير برتقال", "Orange Juice", "מיץ תפוזים"), image: "/menu/bravo-junior-orange-real-20261013.webp", prices: fixedPrice(2) },
+  { id: "DRINK005", slug: "soda", name: localized("صودا تركية", "Turkish Soda", "סודה טורקית"), image: "/menu/uludag-turkish-soda-real-20261013.webp", prices: fixedPrice(2) },
   { id: "DRINK006", slug: "cola", name: localized("كولا", "Cola", "קולה"), image: "", prices: fixedPrice(3) },
   { id: "DRINK007", slug: "sprite", name: localized("سبرايت", "Sprite", "ספרייט"), image: "", prices: fixedPrice(3) },
   { id: "DRINK008", slug: "cola-zero", name: localized("كولا زيرو", "Cola Zero", "קולה זירו"), image: "", prices: fixedPrice(3) },
@@ -939,9 +939,9 @@ menuCategories.push({ id: "drinks", name: localized("المشروبات", "Drink
 
 // Kanoon menu visibility settings. Invisible products remain in the source, and
 // can be restored at any time by removing their ID from menu-visibility.ts.
-// Descriptions outside family offers are intentionally hidden until reviewed.
+// Only the approved family and kids meal descriptions remain visible.
 for (const category of menuCategories) {
-  if (category.id !== "family-offers") {
+  if (category.id !== "family-offers" && category.id !== "kids-meals") {
     for (const item of category.items) item.description = undefined;
   }
   category.items = category.items.filter((item) => !hiddenItemIds.includes(item.id));
