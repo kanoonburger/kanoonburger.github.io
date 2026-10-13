@@ -82,14 +82,14 @@ export function ProductCard({ item, language, onAdd }: ProductCardProps) {
           <span>{({ar:"الكمية بنفس المواصفات",en:"Quantity with same options",he:"כמות עם אותן תוספות"})[language]}</span>
           <div className="addon-stepper"><button type="button" onClick={() => setQuantity(Math.max(1,quantity-1))}>−</button><b>{quantity}</b><button type="button" onClick={() => setQuantity(quantity+1)}>+</button></div>
         </div>}
-        <div className="add-row">
-          <div className="selected-price">{isUnpriced ? <strong>{({ar:"السعر قريبًا",en:"Price coming soon",he:"המחיר בקרוב"})[language]}</strong> : <><strong>{unitPrice * (item.customOneAtATime ? 1 : quantity)}</strong><span>{labels.currency[language]}</span></>}</div>
+        {!isUnpriced && <div className="add-row">
+          <div className="selected-price"><strong>{unitPrice * (item.customOneAtATime ? 1 : quantity)}</strong><span>{labels.currency[language]}</span></div>
           <button type="button" className={`add-button ${justAdded ? "added" : ""}`} onClick={addToCart} disabled={!valid}>
             <span aria-hidden="true">{justAdded ? "✓" : "+"}</span>
             <strong aria-live="polite">{justAdded ? ui.added[language] : item.customOneAtATime ? ({ar:"تأكيد وإضافة للسلة",en:"Confirm and add to cart",he:"אישור והוספה לסל"})[language] : ui.add[language]}</strong>
           </button>
-        </div>
-        {item.placeholderPrice && <small className="test-price-tag">{({ar:"سعر تجريبي — غير معتمد",en:"Test price — not finalized",he:"מחיר זמני לבדיקה"})[language]}</small>}
+        </div>}
+        {!isUnpriced && item.placeholderPrice && <small className="test-price-tag">{({ar:"سعر تجريبي — غير معتمد",en:"Test price — not finalized",he:"מחיר זמני לבדיקה"})[language]}</small>}
       </div>
     </div>
   </article>;
