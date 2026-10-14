@@ -87,7 +87,34 @@ export default function Home() {
             <div className="section-heading">
               <div>
                 <span className="section-number">{String(categoryIndex + 1).padStart(2, "0")}</span>
-                <h2>{category.name[language]}</h2>
+                <h2>
+                  {category.name[language]}
+                  {category.id === "family-offers" && (
+                    <span
+                      style={{
+                        display: "inline-block",
+                        marginInlineStart: 12,
+                        padding: "5px 11px",
+                        border: "1px solid #e8be74",
+                        borderRadius: 999,
+                        backgroundColor: "#fff2d9",
+                        color: "#854513",
+                        fontFamily: "inherit",
+                        fontSize: 13,
+                        fontWeight: 700,
+                        letterSpacing: "normal",
+                        lineHeight: 1.6,
+                        verticalAlign: "middle",
+                      }}
+                    >
+                      {{
+                        ar: "العروض متاحة حتى 31/10/2026",
+                        en: "Offers available until 31 Oct 2026",
+                        he: "המבצעים בתוקף עד 31.10.2026",
+                      }[language]}
+                    </span>
+                  )}
+                </h2>
               </div>
               <p>{category.items.length} {labels.items[language]}</p>
             </div>

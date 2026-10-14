@@ -3,5 +3,5 @@
 // Examples:
 // export const hiddenItemIds: string[] = ["BEEF010"];
 // export const hiddenCategoryIds: string[] = ["drinks"];
-export const hiddenItemIds: string[] = ["BEEF010", "FAMILY002", "FAMILY003"];
+export const hiddenItemIds: string[] = ["BEEF010", "FAMILY002", "FAMILY003", "DRINK001"];
 export const hiddenCategoryIds: string[] = [];
