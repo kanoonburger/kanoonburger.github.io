@@ -905,7 +905,7 @@ menuCategories.push({
 menuCategories.push({ id: "family-offers", name: localized("عروض عائلية", "Family Offers", "מבצעים משפחתיים"), items: [
   { id: "FAMILY005", slug: "five-classic-burgers-offer", name: localized("عرض اللمة", "Al-Lamma Family Offer", "מבצע אל-למה"),
     description: localized("5 تشيز برغر كلاسيك (100 غم للحبة) + بطاطا كبيرة + صوصات متنوعة + 5 علب تشات كولا.", "5 classic cheeseburgers (100 g each) + large fries + assorted sauces + 5 Chat Cola cans.", "5 צ׳יזבורגרים קלאסיים (100 גרם כל אחד) + צ׳יפס גדול + רטבים מגוונים + 5 פחיות צ׳אט קולה."),
-    image: "/menu/family-five-classic-chat.webp", prices: fixedPrice(100) },
+    image: "/menu/family-five-classic-chat.webp", prices: fixedPrice(110) },
   { id: "FAMILY001", slug: "four-beef-burgers-offer", name: localized("متكتك", "Metaktak", "מטקטק"),
     description: localized("4 برغر لحمة (150 غم للحبة) + بطاطا كبيرة + 4 حلقات بصل + 4 كرات بطاطا + صوصات متنوعة + 4 علب تشات كولا.", "4 beef burgers (150 g each) + large fries + 4 onion rings + 4 potato balls + assorted sauces + 4 Chat Cola cans.", "4 המבורגרי בקר (150 גרם כל אחד) + צ׳יפס גדול + 4 טבעות בצל + 4 כדורי תפוחי אדמה + רטבים מגוונים + 4 פחיות צ׳אט קולה."),
     image: "/menu/family-four-beef-burgers-chat.webp", prices: fixedPrice(110) },
