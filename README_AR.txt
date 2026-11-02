@@ -1,19 +1,16 @@
-Kanoon Digital Menu — إصلاح تداخل صور بداية الصفحة على iPhone
+Kanoon Digital Menu — إضافة صورتين إلى قسم «موقعنا وصور من المكان»
 
-الملفات: app/globals.css فقط.
-
-المشكلة: في متصفح Instagram على iPhone، قد تتجاوز صور بداية الموقع ارتفاع المعرض وتظهر خلف مربع العنوان والسلة.
-الحل: تقييد ارتفاع صفوف الصور وقص أي تمدد زائد داخل المعرض في الشاشات بعرض 760px أو أقل، دون تعديل الموقع على الكمبيوتر.
+المحتوى:
+- app/components/photo-gallery.tsx : إضافة الصورتين إلى المعرض دون حذف الصور السابقة.
+- public/gallery/kanoon-golden-night-location-20261102.webp
+- public/gallery/kanoon-street-directions-20261102.webp
 
 طريقة التركيب:
-1) فك ضغط الملف.
-2) انسخ مجلد app إلى مجلد kanoonburger.github.io واختر Replace.
-3) تحقق محليا بالأمر npm run dev:local.
-4) نفذ $env:GITHUB_PAGES="true"; npm run build:pages
-5) بعد النجاح ارفع Source Control -> Commit -> Sync Changes.
-6) جرّب رابط الموقع على iPhone من داخل Instagram وتحقق أن مربع العنوان والسلة بالكامل أسفل معرض الصور.
+1. فك الضغط.
+2. انسخ مجلدي app وpublic إلى داخل kanoonburger.github.io واختر Replace.
+3. راجع قسم «صور من كانون» > «موقعنا وصور من المكان» محليًا.
+4. شغّل: $env:GITHUB_PAGES="true"; npm run build:pages
+5. بعد نجاح البناء ارفع من Source Control ثم Commit ثم Sync Changes.
 
-رسالة Commit:
-Fix iPhone hero photo overlap with address and cart
-
-ملاحظة: هذا ملف ترقيع مبني على آخر globals.css من نسخة المشروع التي قدمتها، ويغير CSS فقط.
+مهم: الصورتان تصميمان ترويجيان مولّدان بالذكاء الاصطناعي، وليستا توثيقًا فوتوغرافيًا حرفيًا للموقع.
+لا يتضمن هذا التحديث ملفات بيانات الأصناف أو تحديث المشروبات؛ حافظ على تحديث المشروبات الموجود عندك.

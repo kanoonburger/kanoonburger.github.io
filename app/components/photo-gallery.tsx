@@ -14,6 +14,8 @@ const photos: { title: LocalizedText; photos: GalleryPhoto[] }[] = [
     { src: "/gallery/kanoon-storefront-promo.webp", alt: { ar: "مطعم كانون من الخارج", en: "Kanoon storefront poster", he: "חזית מסעדת קאנון" } },
     { src: "/gallery/kanoon-street-promo.webp", alt: { ar: "صورة ترويجية لشارع نعلين", en: "Ni'lin street promotional image", he: "תמונת פרסום של רחוב נעלין" } },
     { src: "/gallery/kanoon-burger-street.webp", alt: { ar: "صورة ترويجية برغر مع خلفية الشارع", en: "Promotional burger photo with street scene", he: "צילום פרסומי של בורגר על רקע הרחוב" } },
+    { src: "/gallery/kanoon-golden-night-location-20261102.webp", alt: { ar: "تصميم ترويجي لأجواء مطعم كانون في نعلين", en: "Promotional illustration of Kanoon in Ni'lin", he: "הדמיה פרסומית של קאנון בנעלין" } },
+    { src: "/gallery/kanoon-street-directions-20261102.webp", alt: { ar: "تصميم إرشادي للوصول إلى مطعم كانون في نعلين", en: "Promotional directions illustration for Kanoon in Ni'lin", he: "הדמיית הכוונה פרסומית למסעדת קאנון בנעלין" } },
   ] },
 ];
 export function PhotoGallery({ language }: { language: Language }) {

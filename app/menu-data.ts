@@ -925,16 +925,19 @@ menuCategories.push({ id: "family-offers", name: localized("عروض عائلي�
 ]});
 menuCategories.push({ id: "drinks", name: localized("المشروبات", "Drinks", "משקאות"), items: [
   { id: "DRINK001", slug: "chat-cola", name: localized("تشات كولا", "Chat Cola", "צ׳אט קולה"), image: "/menu/chat-cola.webp", prices: fixedPrice(2) },
-  { id: "DRINK002", slug: "xl-energy-drink", name: localized("إكس إل", "XL", "XL"), image: "/menu/xl-energy-drink-real-20261013.webp", prices: fixedPrice(5) },
+  { id: "DRINK002", slug: "xl-energy-drink", name: localized("إكس إل", "XL Energy Drink", "XL משקה אנרגיה"), image: "/menu/xl-energy-drink-20261102.webp", prices: fixedPrice(5) },
   { id: "DRINK003", slug: "grape-juice", name: localized("عصير عنب", "Grape Juice", "מיץ ענבים"), image: "/menu/bravo-junior-grape-real-20261013.webp", prices: fixedPrice(2) },
   { id: "DRINK004", slug: "orange-juice", name: localized("عصير برتقال", "Orange Juice", "מיץ תפוזים"), image: "/menu/bravo-junior-orange-real-20261013.webp", prices: fixedPrice(2) },
   { id: "DRINK005", slug: "soda", name: localized("صودا تركية", "Turkish Soda", "סודה טורקית"), image: "/menu/uludag-turkish-soda-real-20261013.webp", prices: fixedPrice(2) },
-  { id: "DRINK006", slug: "cola", name: localized("كولا", "Cola", "קולה"), image: "/menu/coca-cola-original-20261013.png", prices: fixedPrice(3) },
-  { id: "DRINK007", slug: "sprite", name: localized("سبرايت", "Sprite", "ספרייט"), image: "", prices: fixedPrice(3) },
-  { id: "DRINK008", slug: "cola-zero", name: localized("كولا زيرو", "Cola Zero", "קולה זירו"), image: "/menu/coca-cola-zero-20261013.png", prices: fixedPrice(3) },
+  { id: "DRINK006", slug: "cola", name: localized("كوكاكولا عادية", "Coca-Cola Original", "קוקה-קולה רגילה"), image: "/menu/coca-cola-original-20261102.webp", prices: fixedPrice(3) },
+  { id: "DRINK007", slug: "sprite", name: localized("سبرايت", "Sprite", "ספרייט"), image: "/menu/sprite-original-20261102.webp", prices: fixedPrice(3) },
+  { id: "DRINK008", slug: "cola-zero", name: localized("كوكاكولا زيرو", "Coca-Cola Zero", "קוקה-קולה זירו"), image: "/menu/coca-cola-zero-20261102.webp", prices: fixedPrice(3) },
   { id: "DRINK009", slug: "chocodose-mojito", name: localized("موهيتو ChocoDose", "ChocoDose Mojito", "מוחיטו ChocoDose"), image: "", prices: fixedPrice(5),
     addOnGroups: [{ id: "mojito-mixer", label: localized("اختر المشروب المضاف إلى الموهيتو", "Choose your mojito mixer", "בחרו משקה למוחיטו"), kind: "single", required: true,
       options: [option("sprite", "سبرايت", "Sprite", "ספרייט", 3), option("xl", "إكس إل", "XL", "XL", 5), option("soda", "صودا تركية", "Turkish Soda", "סודה טורקית", 2)] }] },
+  { id: "DRINK010", slug: "blu-day-energy-drink", name: localized("بلو داي", "Blu Day Energy Drink", "בלו דיי משקה אנרגיה"), image: "/menu/blu-day-energy-drink-20261102.webp", prices: fixedPrice(4) },
+  { id: "DRINK011", slug: "sifa-premium-soda", name: localized("صودا شفا بريميوم", "Sifa Premium Soda", "סודה שיפא פרימיום"), image: "/menu/sifa-premium-soda-20261102.webp", prices: fixedPrice(3) },
+  { id: "DRINK012", slug: "fanta-orange", name: localized("فانتا برتقال", "Fanta Orange", "פאנטה תפוזים"), image: "/menu/fanta-orange-20261102.webp", prices: fixedPrice(3) },
 ]});
 
 // Kanoon menu visibility settings. Invisible products remain in the source, and
