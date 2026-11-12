@@ -26,7 +26,7 @@ export const restaurant = {
   socials: [
     {
       label: "Instagram",
-      url: "https://www.instagram.com/kanoonresturant.2024/#",
+      url: "https://www.instagram.com/kanoorestaurant.ps/",
     },
     {
       label: "Facebook",

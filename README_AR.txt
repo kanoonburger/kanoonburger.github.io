@@ -1,16 +1,15 @@
-Kanoon Digital Menu — إضافة صورتين إلى قسم «موقعنا وصور من المكان»
+Kanoon Digital Menu — Instagram Link Update
 
-المحتوى:
-- app/components/photo-gallery.tsx : إضافة الصورتين إلى المعرض دون حذف الصور السابقة.
-- public/gallery/kanoon-golden-night-location-20261102.webp
-- public/gallery/kanoon-street-directions-20261102.webp
+التحديث فقط لرابط إنستغرام الجديد:
+https://www.instagram.com/kanoorestaurant.ps/
 
-طريقة التركيب:
-1. فك الضغط.
-2. انسخ مجلدي app وpublic إلى داخل kanoonburger.github.io واختر Replace.
-3. راجع قسم «صور من كانون» > «موقعنا وصور من المكان» محليًا.
-4. شغّل: $env:GITHUB_PAGES="true"; npm run build:pages
-5. بعد نجاح البناء ارفع من Source Control ثم Commit ثم Sync Changes.
+طريقة الاستخدام:
+1. فك ضغط ZIP.
+2. انسخ مجلد app إلى مجلد مشروع kanoonburger.github.io واختر Replace.
+3. شغّل npm run dev:local وافحص أيقونة إنستغرام أسفل الصفحة.
+4. بعد الاختبار نفّذ في PowerShell داخل مجلد المشروع:
+   $env:GITHUB_PAGES="true"; npm run build:pages
+5. ارفع من Source Control > Commit > Sync Changes.
 
-مهم: الصورتان تصميمان ترويجيان مولّدان بالذكاء الاصطناعي، وليستا توثيقًا فوتوغرافيًا حرفيًا للموقع.
-لا يتضمن هذا التحديث ملفات بيانات الأصناف أو تحديث المشروبات؛ حافظ على تحديث المشروبات الموجود عندك.
+الملف المعدّل الوحيد: app/data/restaurant.ts
+لم نغيّر فيسبوك أو تيك توك أو واتساب أو الأصناف أو الأسعار أو الصور.
